@@ -3,13 +3,39 @@
 Generate a banano address with a prefix of your choice.
 The longer the prefix, the longer it'll take to compute.
 
-## Installation
+## Compiling
 
 First, setup Rust. The best way to do this is with [rustup](https://rustup.rs).
 
-to build clone the github repository and cd into it. Then 
+The next step is to clone the github repository. This can be done with
 
-If you want to enable GPU support, install OpenCL and add `--features gpu` to the install command.
+```bash
+git clone https://github.com/flammenderdrache/banano-vanity.git
+```
+
+Alternatively you can also download the source code via the github website.
+
+Next you have to cd into the cloned repository.
+
+After that execute 
+
+```bash
+cargo build --release
+```
+
+You will find the finished binary in the `target/release` folder.
+
+If you want to enable GPU support via OpenCL, you have to instead execute
+
+```bash
+cargo build --release --features gpu
+```
+
+You will find the binary in the same place as the one built without the GPU feature.
+
+On Windows the build might fail because you are lacking a library needed to compile for OpenCL, it is called
+`OpenCL.lib`. The easiest way to compile with it, is to just throw it into the `target/release/deps` folder,
+then executing the build command again.
 
 For a list of `banano-vanity` options, use `banano-vanity --help`.
 
@@ -64,7 +90,7 @@ with an examination of the program's source code.
 
 Here's an example of how to run this with dieharder:
 
-```
+```bash
 banano-vanity --threads 1 --no-progress --limit 0 --simple-output nano_1 | cut -d' ' -f1 | xxd -r -p | dieharder -a -g stdin_input_raw
 ```
 
