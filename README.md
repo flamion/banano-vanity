@@ -15,6 +15,8 @@ For a list of `banano-vanity` options, use `banano-vanity --help`.
 
 ## Seed Generation
 
+(Although it is a bit slower i recommend generating seeds)
+
 By default, `banano-vanity` generates private keys instead of seeds.
 You can use these in the desktop wallet (they're referred to as adhoc keys),
 however, most other wallets do not yet support them.
