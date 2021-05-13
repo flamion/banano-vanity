@@ -1,31 +1,21 @@
-# nano-vanity
+# banano-vanity
 
-Generate a NANO address with a prefix of your choice.
+Generate a banano address with a prefix of your choice.
 The longer the prefix, the longer it'll take to compute.
 
 ## Installation
 
 First, setup Rust. The best way to do this is with [rustup](https://rustup.rs).
 
-To install `nano-vanity` from crates.io:
-
-```
-cargo install nano-vanity
-```
-
-To install `nano-vanity` from source:
-
-```
-cargo install --path .
-```
+to build clone the github repository and cd into it. Then 
 
 If you want to enable GPU support, install OpenCL and add `--features gpu` to the install command.
 
-For a list of `nano-vanity` options, use `nano-vanity --help`.
+For a list of `banano-vanity` options, use `banano-vanity --help`.
 
 ## Seed Generation
 
-By default, `nano-vanity` generates private keys instead of seeds.
+By default, `banano-vanity` generates private keys instead of seeds.
 You can use these in the desktop wallet (they're refered to as adhoc keys),
 however, most other wallets do not yet support them.
 
@@ -73,7 +63,7 @@ with an examination of the program's source code.
 Here's an example of how to run this with dieharder:
 
 ```
-nano-vanity --threads 1 --no-progress --limit 0 --simple-output nano_1 | cut -d' ' -f1 | xxd -r -p | dieharder -a -g stdin_input_raw
+banano-vanity --threads 1 --no-progress --limit 0 --simple-output nano_1 | cut -d' ' -f1 | xxd -r -p | dieharder -a -g stdin_input_raw
 ```
 
 If you get a weak or failed test, run that test again by passing dieharder `-d [test]`.
