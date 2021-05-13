@@ -125,10 +125,10 @@ fn check_solution(params: &ThreadParams, key_material: [u8; 32]) -> bool {
 }
 
 fn main() {
-    let args = clap::App::new("nano-vanity")
+    let args = clap::App::new("banano-vanity")
         .version(env!("CARGO_PKG_VERSION"))
         .author("Lee Bousfield <ljbousfield@gmail.com>")
-        .about("Generate NANO cryptocurrency addresses with a given prefix")
+        .about("Generate banano cryptocurrency addresses with a given prefix")
         .arg(
             clap::Arg::with_name("prefix")
                 .value_name("PREFIX")
@@ -205,11 +205,8 @@ fn main() {
     let mut ext_pubkey_req = BigInt::default();
     let mut ext_pubkey_mask = BigInt::default();
     if let Some(mut prefix) = args.value_of("prefix") {
-        if prefix.starts_with("xrb_") {
+        if prefix.starts_with("ban_") {
             prefix = &prefix[4..];
-        }
-        if prefix.starts_with("nano_") {
-            prefix = &prefix[5..];
         }
         let mut prefix_chars = prefix.chars();
         let mut prefix_req = BigInt::default();
@@ -227,7 +224,7 @@ fn main() {
         if prefix_chars.next().is_some() {
             eprintln!("Warning: prefix too long.");
             eprintln!(
-                "Only the first 60 characters of your prefix (not including nano_) will be used."
+                "Only the first 60 characters of your prefix (not including ban_) will be used."
             );
             eprintln!("");
         }
