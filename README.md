@@ -3,7 +3,15 @@
 Generate a banano address with a prefix of your choice.
 The longer the prefix, the longer it'll take to compute.
 
+# Installation
+
+If you are on Arch linux you can just install it via your AUR helper
+
+There is also a WSL built binary available for download
+
 ## Compiling
+
+If you want to self compile it:
 
 First, setup Rust. The best way to do this is with [rustup](https://rustup.rs).
 
